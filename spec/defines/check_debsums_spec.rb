@@ -15,16 +15,16 @@ describe "check_debsums" do
     end
   end
 
-  describe "with packages not being an array" do
+  describe "with packages being an array" do
     let(:title) { 'foobar' }
     let(:params) {{
       :packages => ['bar', 'baz'],
     }}
 
-    it {
+    it "should create a check_debsums nrpe check" do
       should contain_file('/etc/nagios/nrpe.d/check_debsums')\
         .with_content("[check_debsums]=/usr/lib/nagios/plugins/check_debsums bar baz")
-    }
+    end
 
   end
 
