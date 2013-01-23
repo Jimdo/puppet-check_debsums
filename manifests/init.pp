@@ -1,5 +1,5 @@
 define check_debsums (
-  packages = [],
+  $packages
 ) {
 
   if ! is_array($packages) {
