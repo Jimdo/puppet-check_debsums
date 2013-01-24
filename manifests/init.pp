@@ -10,7 +10,7 @@ define check_debsums (
     mode => '0644',
     owner => root,
     group => root,
-    content => inline_template("[check_debsums_${name}]=/usr/lib/nagios/plugins/check_debsums <%= packages.join(' ') -%>")
+    content => inline_template("[check_debsums_${name}]=sudo /usr/lib/nagios/plugins/check_debsums <%= packages.join(' ') -%>")
   }
 
 }
