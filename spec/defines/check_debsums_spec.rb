@@ -22,8 +22,8 @@ describe "check_debsums" do
     }}
 
     it "should create a check_debsums nrpe check" do
-      should contain_file('/etc/nagios/nrpe.d/check_debsums')\
-        .with_content("[check_debsums]=/usr/lib/nagios/plugins/check_debsums bar baz")
+      should contain_file('/etc/nagios/nrpe.d/check_debsums_foobar')\
+        .with_content("[check_debsums_foobar]=/usr/lib/nagios/plugins/check_debsums bar baz")
     end
 
   end

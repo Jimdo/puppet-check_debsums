@@ -6,11 +6,11 @@ define check_debsums (
     fail("packages must be an array: '${packages}'")
   }
 
-  file { '/etc/nagios/nrpe.d/check_debsums':
+  file { "/etc/nagios/nrpe.d/check_debsums_${name}":
     mode => '0644',
     owner => root,
     group => root,
-    content => inline_template("[check_debsums]=/usr/lib/nagios/plugins/check_debsums <%= packages.join(' ') -%>")
+    content => inline_template("[check_debsums_${name}]=/usr/lib/nagios/plugins/check_debsums <%= packages.join(' ') -%>")
   }
 
 }
