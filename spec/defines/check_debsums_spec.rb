@@ -10,7 +10,7 @@ describe "check_debsums" do
 
     it do
       expect {
-        should contain_file('/etc/nagios/nrpe.d/check_debsums')
+        should contain_file('/etc/nagios/nrpe.d/check_debsums.cfg')
       }.to raise_error(Puppet::Error, /packages must be an array: 'baz'/)
     end
   end
@@ -22,8 +22,8 @@ describe "check_debsums" do
     }}
 
     it "should create a check_debsums nrpe check" do
-      should contain_file('/etc/nagios/nrpe.d/check_debsums_foobar')\
-        .with_content("[check_debsums_foobar]=sudo /usr/lib/nagios/plugins/check_debsums bar baz")
+      should contain_file('/etc/nagios/nrpe.d/check_debsums_foobar.cfg')\
+        .with_content("command[check_debsums_foobar]=sudo /usr/lib/nagios/plugins/check_debsums bar baz")
     end
 
   end
