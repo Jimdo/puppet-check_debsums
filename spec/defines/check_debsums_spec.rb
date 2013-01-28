@@ -23,7 +23,8 @@ describe "check_debsums" do
 
     it "should create a check_debsums nrpe check" do
       should contain_file('/etc/nagios/nrpe.d/check_debsums_foobar.cfg')\
-        .with_content("command[check_debsums_foobar]=sudo /usr/lib/nagios/plugins/check_debsums bar baz")
+        .with_content("command[check_debsums_foobar]=sudo /usr/lib/nagios/plugins/check_debsums bar baz")\
+        .with_notify("Service[nagios-nrpe-server]")
     end
 
   end
