@@ -12,7 +12,7 @@ define check_debsums (
     group   => root,
     content => inline_template("command[check_debsums_${name}]=sudo /usr/lib/nagios/plugins/check_debsums <%= packages.join(' ') -%>"),
     notify  => Service['nagios-nrpe-server'],
-    require => [Service['nagios-nrpe-server'],Class['check_debsums::package']],
+    require => Class['check_debsums::package'],
   }
 
 }
