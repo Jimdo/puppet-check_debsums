@@ -9,7 +9,7 @@ class check_debsums::package {
     owner => root,
     group => root,
     source => 'puppet:///modules/check_debsums/check_debsums',
-    require => Package['nagios-nrpe-server']
+    require => Package['nagios-plugins']
   }
 
 }
