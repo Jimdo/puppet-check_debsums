@@ -4,7 +4,5 @@ rvm:
   - jruby-18mode
 script: bundle exec rake lint && bundle exec rake spec
 env:
-  - PUPPET_VERSION=2.6.9
-  - PUPPET_VERSION=2.7.14
-  - PUPPET_VERSION=2.7.19
+  - PUPPET_VERSION=2.7.23
   - PUPPET_VERSION=3.0.1
