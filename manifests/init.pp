@@ -10,7 +10,7 @@ define check_debsums (
     mode    => '0644',
     owner   => root,
     group   => root,
-    content => inline_template("command[check_debsums_${name}]=sudo /usr/lib/nagios/plugins/check_debsums <%= packages.join(' ') -%>"),
+    content => inline_template("command[check_debsums_${name}]=sudo /usr/lib/nagios/plugins/check_debsums <%= @packages.join(' ') -%>"),
     notify  => Service['nagios-nrpe-server'],
     require => [Class['check_debsums::package'],Package['nagios-nrpe-server']]
   }
